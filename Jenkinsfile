@@ -1,4 +1,4 @@
-node {
+piepline {
     agent any
 
     stage('Clone repository') {
