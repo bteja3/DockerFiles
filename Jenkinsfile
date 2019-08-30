@@ -1,7 +1,7 @@
-pipeline {
-    agent any
+node {
+    def app
 
-    stage { ('Clone repository') 
+    stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
 
         checkout scm
@@ -10,7 +10,7 @@ pipeline {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("testimage:1.0")
+        app = docker.build("anandr72/nodeapp")
     }
 
     stage('Test image') {
@@ -19,4 +19,4 @@ pipeline {
             echo "Tests passed"
         }
     }
-}
+
