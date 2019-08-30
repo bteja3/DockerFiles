@@ -1,5 +1,5 @@
 node {
-    def app
+    agent any
 
     stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("anandr72/nodeapp")
+        app = docker.build("imagetest:1.0")
     }
 
     stage('Test image') {
@@ -19,4 +19,4 @@ node {
             echo "Tests passed"
         }
     }
-
+}
